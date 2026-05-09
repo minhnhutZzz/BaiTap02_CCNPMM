@@ -40,28 +40,32 @@ Dưới đây là các kịch bản kiểm thử API đã được thực hiện
 **Mô tả:** Khi client cung cấp thông tin đăng nhập (Email/Username và Password) hợp lệ. Hệ thống xử lý thành công, trả về HTTP Status `200 OK` kèm theo thông tin User và chuỗi `access_token` JWT.
 
 > *Chèn ảnh minh họa cho trường hợp đăng nhập thành công vào bên dưới:*
-<img width="1918" height="933" alt="image" src="https://github.com/user-attachments/assets/dec34a84-98e0-45eb-83a5-aa1c3ca59b47" />
+<img width="1918" height="877" alt="image" src="https://github.com/user-attachments/assets/5dc85a72-4a48-4bcb-876e-82d28e13cbcb" />
+
 
 
 ### 2. POST Login API - Sai mật khẩu
 **Mô tả:** Khi client nhập đúng Email/Username nhưng sai mật khẩu. Hệ thống từ chối truy cập, đảm bảo không rò rỉ thông tin thừa, trả về HTTP Status `401 Unauthorized` hoặc `400 Bad Request` kèm thông báo lỗi "Thông tin đăng nhập không chính xác".
 
 > *Chèn ảnh minh họa cho trường hợp sai mật khẩu vào bên dưới:*
-<img width="1915" height="873" alt="image" src="https://github.com/user-attachments/assets/7122212b-6334-46ec-b7fa-8e42e1025f3e" />
+<img width="1917" height="753" alt="image" src="https://github.com/user-attachments/assets/f633a8ca-95ca-49ea-a404-6f5bd17ba82b" />
+
 
 
 ### 3. POST Login API - Thiếu Validation
 **Mô tả:** Khi request body từ client gửi lên bị thiếu các trường bắt buộc (như không có trường mật khẩu) hoặc sai định dạng (email không có `@`). Lớp Middleware Validation bắt lỗi ngay lập tức và trả về HTTP Status `400 Bad Request` cùng danh sách chi tiết các trường bị lỗi.
 
 > *Chèn ảnh minh họa cho trường hợp thiếu Validation vào bên dưới:*
-<img width="1916" height="846" alt="image" src="https://github.com/user-attachments/assets/bec09434-6a6a-4777-92af-5b9cd8b62b6f" />
+<img width="1915" height="777" alt="image" src="https://github.com/user-attachments/assets/8854117f-bf6f-4ff9-bc19-9f55863d6b79" />
+
 
 
 ### 4. POST Login API - Bị chặn RateLimit
 **Mô tả:** Khi một IP cố tình gửi quá nhiều request đăng nhập liên tục trong thời gian ngắn vượt mức cho phép. Hệ thống kích hoạt Rate Limit, lập tức chặn các request tiếp theo và trả về HTTP Status `429 Too Many Requests` kèm thông báo yêu cầu thử lại sau.
 
 > *Chèn ảnh minh họa cho trường hợp bị chặn bởi Rate Limiting vào bên dưới:*
-<img width="1918" height="758" alt="image" src="https://github.com/user-attachments/assets/7dfa6532-3a0b-4af7-a950-877829ab1b05" />
+<img width="1904" height="761" alt="image" src="https://github.com/user-attachments/assets/3adb05f1-7e05-4880-9882-d54054828bc9" />
+
 
 
 ---
